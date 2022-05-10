@@ -1,51 +1,28 @@
 #include <stdio.h>
 
 int main() {
-   char texto[50];
-   int p=0;
-   int indice=0;
-	   printf( "Introduzca un texto (50 letras maximo): " );
-	   scanf( "%s", texto );
-
-      char salida[50];
-      while (texto[p] != '\0')
+   char entrada;
+   char salida;
+      while ((entrada=getchar()) != EOF)
       {
          
-            if (texto[p]>64 && texto[p]<91){
-            salida[indice] = texto[p]+32;
-            indice++;
+            if (entrada>64 && entrada<91){
+            salida= entrada+32;
+         
             }
-            else if (texto[p]>96 && texto[p]<123){
-            salida[indice] = texto[p]-32;
-            indice++;
-            }else if (texto[p]>47 && texto[p]<58){
+            else if (entrada>96 && entrada<123){
+            salida= entrada-32;
+         
+            }else if (entrada>47 && entrada<58){
                
             }else{
-               salida[indice] = texto[p];
-               indice++;
+               salida= entrada;
+            
             }
-         p++;
+            putchar(salida);
       }
-   
-   printf( "El texto que ha escrito es: %s\n", salida );
 
-   /*
-   pr=c;
-   if(c-pr!=0){
-      printf("%d", pr);
-   }
+      
 
-   if(a>64 && a<91){
-   a = a+32;
-   printf("%d ", a);
-   printf("%c", a);
-   }
-
-   if(a>96 && a<123){
-   a = a-32;
-   printf("%d ", a);
-   printf("%c", a);
-   }
-   */
    return 0;
 }
