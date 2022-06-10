@@ -1,28 +1,26 @@
 #include <stdio.h>
+#include <ctype.h>
 
 int main() {
    char entrada;
-   char salida;
       while ((entrada=getchar()) != EOF)
       {
-         
-            if (entrada>64 && entrada<91){
-            salida= entrada+32;
+            if (isupper(entrada)){
+               entrada = tolower(entrada);
+               putchar(entrada);
          
             }
-            else if (entrada>96 && entrada<123){
-            salida= entrada-32;
-         
-            }else if (entrada>47 && entrada<58){
-               
-            }else{
-               salida= entrada;
-            
-            }
-            putchar(salida);
-      }
+            else if (islower(entrada)){
+               entrada = toupper(entrada);
+               putchar(entrada);
 
-      
+         
+            }else if (!(isdigit(entrada))){
+
+               putchar(entrada);
+            }
+            
+      }
 
    return 0;
 }
